@@ -17,5 +17,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 Route::get('/test', function () {
-	return 'hello';
+	header('Access-Control-Allow-Origin: *');
+
+	return response()->json(['data' => request()->all()], 200);
 });
