@@ -1,0 +1,39 @@
+.legend {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.safeZone::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 3px;
+    margin-right: 0.5em;
+    background-color: green;
+}
+
+.lowRisk::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 3px;
+    margin-right: 0.5em;
+    background-color: yellow;
+}
+
+.highRisk::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 3px;
+    margin-right: 0.5em;
+    background-color: red;
+}

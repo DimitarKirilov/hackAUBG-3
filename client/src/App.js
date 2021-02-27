@@ -7,6 +7,8 @@ import {
 import Login from './components/Login';
 import Register from './components/Register';
 import HomePage from './components/HomePage';
+import MapTest from './components/MapTest';
+import DetailedData from './components/DetailedData';
 
 // const getData = () => {
 //   axios.get('http://dev.stuk.help/hackathon/public/test?test=1')
@@ -23,6 +25,8 @@ function App() {
       <Route path="/" exact component={Login}></Route>
       <Route path="/register" exact component={Register}></Route>
       <Route path="/home" exact component={HomePage}></Route>
+      <Route path="/details" exact component={DetailedData}></Route>
+      <Route path="/map" exact component={MapTest}></Route>
     </Switch>
   );
 }

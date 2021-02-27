@@ -1,0 +1,44 @@
+.insurancePanel {
+    width: 100%;
+    height: 100%;
+}
+
+.mainContentContainer {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    height: 80%;
+    padding: 0 1em;
+}
+
+.sidebarContainer {
+    width: 20%;
+    height: 100%;
+    background-color: #494b63;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.sidebarListItem {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.sidebarListItem + .sidebarListItem {
+    margin-top: 0.5em;
+}
+
+.dataContainer {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+}
+
+.tableContainer {
+    margin-top: auto;
+    max-width: 80%;
+}

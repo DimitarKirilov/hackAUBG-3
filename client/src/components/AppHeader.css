@@ -1,0 +1,25 @@
+.insurancePanelHeader {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.insurancePanelHeader h2 {
+    margin: 0;
+}
+
+.logo {
+    max-width: 4em;
+}
+
+.profileIcon {
+    padding: 0 !important;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
