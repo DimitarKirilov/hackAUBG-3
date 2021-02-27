@@ -9,6 +9,19 @@ export default function MapTest() {
 
     useEffect(() => {
 
+        let str = 'POLYGON((-87.6244002091215 41.8888626198675, -87.6244418621793 41.8888721261156))';
+
+        let coordinates = str.split('((')[1].split('))')[0].split(', ');
+
+        let arrayOfTuples = [];
+        coordinates.forEach((coordinate) => {
+            let lat = coordinate.split(' ')[0];
+            let lng = coordinate.split(' ')[1];
+            arrayOfTuples.push([Number(lat), Number(lng)]);
+        });
+
+        console.log(arrayOfTuples);
+
         const map = new mapboxgl.Map({
             container: 'map', // container id
             style: 'mapbox://styles/sbzhechev/cklnq1ist4k9r17ms6qwfqp32', // style URL
@@ -137,6 +150,12 @@ export default function MapTest() {
 
         const nav = new mapboxgl.NavigationControl();
         map.addControl(nav, 'bottom-right');
+
+        map.on('click', function(e) {
+            // The event object (e) contains information like the
+            // coordinates of the point on the map that was clicked.
+            console.log('A click event has occurred at ', e);
+        });
        
     }, []);
 
