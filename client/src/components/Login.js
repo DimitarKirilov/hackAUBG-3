@@ -21,36 +21,46 @@ export default function Login() {
         event.preventDefault();
     };
 
+    const handleLogin = () => {
+        let data = { username, password };
+        console.log(data);
+        setUsername('');
+        setPassword('');
+    };
+
     return (
         <div className="background">
-            <form className="formContainer">
-                <TextField id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)} className="credentialField"></TextField>
-                <FormControl variant="outlined" className="credentialField">
-                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                    <OutlinedInput
-                        id="outlined-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        label="Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={() => setShowPassword(!showPassword)}
-                                onMouseDown={handleMouseDownPassword}
-                                edge="end"
-                            >
-                                {showPassword ? <Visibility /> : <VisibilityOff />}
-                            </IconButton>
-                        </InputAdornment>
-                        }
-                        labelWidth={70}
-                    />
-                </FormControl>
-                <Button variant="contained" color="primary" className="margin-top">Login</Button>
-                <Link to='/register' className="margin-top">You dont have an account? Register now!</Link>
-            </form>
+            <section className="contentContainer">
+                <h2>Login</h2>
+                <form className="formContainer">
+                    <TextField id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)} className="credentialField"></TextField>
+                    <FormControl variant="outlined" className="credentialField">
+                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                        <OutlinedInput
+                            id="outlined-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            label="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                                </IconButton>
+                            </InputAdornment>
+                            }
+                            labelWidth={70}
+                        />
+                    </FormControl>
+                    <Button variant="contained" color="primary" className="margin-top" onClick={handleLogin}>Login</Button>
+                    <Link to='/register' className="margin-top">You dont have an account? Register now!</Link>
+                </form>
+            </section>
         </div>
     );
 }
