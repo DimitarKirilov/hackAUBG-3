@@ -1,0 +1,16 @@
+runtime: php73
+service: default
+env_variables:
+  ## Put production environment variables here.
+  APP_KEY: base64:IBPNWbb34iDrNWi4HDZx0BmTa5yHpTtMdQvJPB1qhTM=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_DATABASE: test
+  DB_USERNAME: test
+  DB_PASSWORD: k96st458rndz
+  ## for MYSQL, use DB_SOCKET:
+  DB_SOCKET: "/cloudsql/hackaubg3:europe-west1:hackaubg-3"
+  ## for PostgreSQL, use DB_HOST:
+  # DB_HOST: "/cloudsql/YOUR_CONNECTION_NAME"
