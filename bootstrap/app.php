@@ -55,4 +55,18 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Headers: *');
 
+// [START] Add the following block to `bootstrap/app.php`
+/*
+|--------------------------------------------------------------------------
+| Set Storage Path
+|--------------------------------------------------------------------------
+|
+| This script allows you to override the default storage location used by
+| the  application.  You may set the APP_STORAGE environment variable
+| in your .env file,  if not set the default location will be used
+|
+*/
+$app->useStoragePath(env('APP_STORAGE', base_path() . '/storage'));
+// [END]
+
 return $app;

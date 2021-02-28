@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +19,14 @@ Route::get('/', function () {
 	return view('welcome');
 });
 Route::get('/test', function () {
-	return response()->json(['data' => request()->all()], 200);
+	$users = DB::table('test')->get();
+
+	return response()->json(['data' => $users], 200);
+});
+Route::get('/test1', function () {
+	$response = Http::get('https://us-central1-hackaubg3.cloudfunctions.net/bq_read_data', [
+		'address' => request()->address,
+	]);
+
+	return response()->json(['data' => json_decode($response->body())], 200);
 });

@@ -1,6 +1,6 @@
 {
     "remotePath": "./domains/dev.stuk.help/public_html/public/hackathon/",
-    "host": "ftp.stuk.help",
+    "host": "dev.stuk.help",
     "username": "stuk",
     "password": "}3rz(5]spfX~",
     "port": 22222,
@@ -21,9 +21,11 @@
         "public/storage",
         "storage",
         "bootstrap",
-        "\\.env",
         "config",
-        "client"
+        "client",
+        "composer.lock",
+        "app.yaml",
+        "\\.gcloudignore"
     ],
     "generatedFiles": {
         "extensionsToInclude": [
