@@ -97,3 +97,7 @@
 .optionItem + .optionItem {
     margin-top: 0.5em;
 }
+
+.logOut {
+    margin-top: 7em;
+}

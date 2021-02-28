@@ -2,9 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Prerequisites
+
+All you need to set up the project is Node.js and npm. 
+Install them from here (https://nodejs.org/en/)
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install all dependencies required for the project.
 
 ### `npm start`
 

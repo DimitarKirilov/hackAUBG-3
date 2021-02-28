@@ -7,7 +7,7 @@ import axios from 'axios';
 const accessToken = 'pk.eyJ1Ijoic2J6aGVjaGV2IiwiYSI6ImNrbG51YTZ0bjBsbngydm1zcmlrN21lemoifQ.VMydvvgdgj3rwfRPtu6sWA';
 mapboxgl.accessToken = accessToken;
 
-export default function MapTest({ center, zone, initialView, getSelectedZone, updateZone }) {
+export default function Map({ center, zone, initialView, getSelectedZone, updateZone }) {
 
     const [map, setMap] = useState(null);
     const [currentLayer, setCurrentLayer] = useState('');
@@ -32,7 +32,7 @@ export default function MapTest({ center, zone, initialView, getSelectedZone, up
 
         search.on('result', (e) => {
             console.log(e);
-            axios.get(`https://hackaubg3.ew.r.appspot.com/test1?address="${e.result.place_name}"`)
+            axios.get(`https://hackaubg3.ew.r.appspot.com/criminal-level?address="${e.result.place_name}"`)
             .then((response) => updateZone(response.data.data.district_result.district))
             .catch((error) => console.log(error));
         });
