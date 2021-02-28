@@ -19,9 +19,9 @@ Route::get('/', function () {
 	return view('welcome');
 });
 Route::get('/test', function () {
-	$users = DB::table('test')->get();
+	$results = DB::table('results')->get();
 
-	return response()->json(['data' => $users], 200);
+	return response()->json(['data' => $results], 200);
 });
 Route::get('/test1', function () {
 	$response = Http::get('https://us-central1-hackaubg3.cloudfunctions.net/bq_read_data', [
