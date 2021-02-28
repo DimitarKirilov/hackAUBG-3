@@ -1,12 +1,25 @@
-## Prerequisites
+## CityAPI
 
-To run this API serive locally you need to have:
+**Problem**
 
--   [PHP](https://ampps.com/downloads) >= 7.2.5 installed /w [Composer](https://getcomposer.org/download/) (make sure when installing composer to choose the ADD TO PATH option)
--   [Laravel](https://laravel.com/docs/7.x/installation) 7.x installed
+We know cities generate and store a constant stream of data:
 
-## Serving on localhost
+-   Traffic
+-   Waste
+-   Air quality
+-   Crime
+-   Weather
 
-After you have all the prerequisites: Open a terminal in the project folder and run **composer install** followed by **php artisan serve**
+The issue is not in collecting and storing this data, but in processing it in a timely manner to derive actionable insights.
 
-For reference on the endpoints, see the web.php file in the routes folder
+**Our Solution**
+
+This is where CityAPI comes in, a tool that leverages multiple city data sources to serve a particular business vertical - Insurance, Medical, etc
+
+-   Traffic
+-   Crime
+
+Our insurance module provides Insurance companies with the ability to check real-time Traffic [Crime, Air Quality] data for citizens via an easy to use API. Insurance companies input the client's demographics and we return Traffic [Crime and Medical] risk. This allows Insurance companies to offer segmented pricing, which in turn benefits citizens with optimised policy costs.
+Example: A citizen who lives in a neighborhood with few accident-prone intersections will pay less for his car insurance, compared to a citizen that lives in a high-accident, high-crime district
+
+**For more info on how to run the project locally check either the api or client folders**
