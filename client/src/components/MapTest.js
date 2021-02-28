@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import axios from 'axios';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2J6aGVjaGV2IiwiYSI6ImNrbG51YTZ0bjBsbngydm1zcmlrN21lemoifQ.VMydvvgdgj3rwfRPtu6sWA';
+const accessToken = 'pk.eyJ1Ijoic2J6aGVjaGV2IiwiYSI6ImNrbG51YTZ0bjBsbngydm1zcmlrN21lemoifQ.VMydvvgdgj3rwfRPtu6sWA';
+mapboxgl.accessToken = accessToken;
 
-export default function MapTest({ center, zone, initialView }) {
+export default function MapTest({ center, zone, initialView, getSelectedZone, updateZone }) {
 
     const [map, setMap] = useState(null);
     const [currentLayer, setCurrentLayer] = useState('');
@@ -13,11 +17,27 @@ export default function MapTest({ center, zone, initialView }) {
             container: 'map', // container id
             style: 'mapbox://styles/sbzhechev/cklnq1ist4k9r17ms6qwfqp32', // style URL
             center: initialView, // starting position [lng, lat]
-            zoom: 11, // starting zoom
+            zoom: 10.5, // starting zoom
             pitch: 30,
             bearing: -17.6,
             antialias: true
         });
+
+        const search = new MapboxGeocoder({
+            accessToken: accessToken,
+            mapboxgl: mapboxgl,
+            marker: true,
+            zoom: 10.5
+        });
+
+        search.on('result', (e) => {
+            console.log(e);
+            axios.get(`https://hackaubg3.ew.r.appspot.com/test1?address="${e.result.place_name}"`)
+            .then((response) => updateZone(response.data.data.district_result.district))
+            .catch((error) => console.log(error));
+        });
+
+        map.addControl(search);
 
         map.dragRotate.disable();
 
@@ -54,17 +74,19 @@ export default function MapTest({ center, zone, initialView }) {
 
             if (map.getLayer(currentLayer)) map.removeLayer(currentLayer);
 
-            map.addSource(`route${zone.zoneNum}`, {
-                'type': 'geojson',
-                'data': {
-                    'type': 'Feature',
-                    'properties': {},
-                    'geometry': {
-                    'type': 'LineString',
-                    'coordinates': arrayOfTuples
+            if ( !map.getSource(`route${zone.zoneNum}`) ) {
+                map.addSource(`route${zone.zoneNum}`, {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'Feature',
+                        'properties': {},
+                        'geometry': {
+                        'type': 'LineString',
+                        'coordinates': arrayOfTuples
+                        }
                     }
-                }
-            });
+                });
+            }
 
             map.addLayer({
                 'id': `route${zone.zoneNum}`,
@@ -79,9 +101,10 @@ export default function MapTest({ center, zone, initialView }) {
             });
 
             setCurrentLayer(`route${zone.zoneNum}`);
+            getSelectedZone(zone.zoneNum);
         }
        
-    }, [map, zone, center, currentLayer]);
+    }, [map, zone, center, currentLayer, getSelectedZone]);
 
     return (
         <div id="map">

@@ -38,8 +38,20 @@
     background-color: red;
 }
 
+.dropDownItem.active {
+    background-color: #ccc;
+}
+
+.selectedZone {
+    color: white;
+    margin: 1em 0;
+}
+
 .backButton {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: auto;
+    width: 50%;
+    align-self: center;
 }
