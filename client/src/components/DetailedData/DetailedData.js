@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Map from './MapTest';
+import Map from '../Map';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import zones from '../data/data';
+import zones from '../../data/data';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -18,7 +18,6 @@ export default function DetailedData({ data, handleBack, initialView }) {
     const [zoneColors, setZoneColors] = useState({});
     const [selectedZoneNum, setSelectedZoneNum] = useState(null);
     const [zonesDictionary, setZonesDictionary] = useState({});
-    // const [newZone, setNewZone]
 
     const getSelectedZoneNum = num => {
         setSelectedZoneNum(num);
@@ -38,7 +37,7 @@ export default function DetailedData({ data, handleBack, initialView }) {
     }, [data, zoneColors])
 
     useEffect(() => {
-        axios.get('https://hackaubg3.ew.r.appspot.com/test')
+        axios.get('https://hackaubg3.ew.r.appspot.com/results')
             .then((response) => {
                 let tempColors = {};
                 response.data.data.map((zoneInfo) => {

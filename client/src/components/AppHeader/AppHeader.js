@@ -1,7 +1,7 @@
 import React from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton';
-import StolenLogo from '../assets/stolen_logo.png';
+import StolenLogo from '../../assets/stolen_logo.png';
 
 import './AppHeader.css';
 

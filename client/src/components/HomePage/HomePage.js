@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import InsurancePanel from "./InsurancePanel";
-import AppHeader from './AppHeader';
-import DetailedData from './DetailedData';
+import InsurancePanel from "../InsurancePanel/InsurancePanel";
+import AppHeader from '../AppHeader/AppHeader';
+import DetailedData from '../DetailedData/DetailedData';
 
 import './HomePage.css';
 
