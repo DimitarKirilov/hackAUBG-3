@@ -9,9 +9,13 @@ import IconButton from '@material-ui/core/IconButton';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 import './Login.css';
 
 export default function Login() {
+
+    const history = useHistory();
 
     const [username, setUsername] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -26,11 +30,12 @@ export default function Login() {
         console.log(data);
         setUsername('');
         setPassword('');
+        history.push('/home');
     };
 
     return (
         <div className="background">
-            <section className="contentContainer">
+            <section className="login contentContainer">
                 <h2>Login</h2>
                 <form className="formContainer">
                     <TextField id="outlined-basic" label="Username" variant="outlined" value={username} onChange={(e) => setUsername(e.target.value)} className="credentialField"></TextField>

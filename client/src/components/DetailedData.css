@@ -37,3 +37,9 @@
     margin-right: 0.5em;
     background-color: red;
 }
+
+.backButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -9,7 +9,7 @@ export default function AppHeader({ heading }) {
     return (
         <header className="insurancePanelHeader">
             <h2>{heading}</h2>
-            <img src={StolenLogo} className="logo"></img>
+            <img src={StolenLogo} alt="company logo" className="logo"></img>
             <div className="iconContainer">
                 <IconButton className="profileIcon">
                     <AccountCircleIcon></AccountCircleIcon>

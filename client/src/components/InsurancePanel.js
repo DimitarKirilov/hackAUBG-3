@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 import './InsurancePanel.css';
 
-export default function InsurancePanel() {
+export default function InsurancePanel({ handleSelect }) {
 
     const useStyles = makeStyles({
         table: {
@@ -28,31 +28,25 @@ export default function InsurancePanel() {
     };
       
     const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+        createData('Eclair', 262, 16.0, 24, 6.0),
+        createData('Cupcake', 305, 3.7, 67, 4.3),
+        createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
 
+    const handleClick = (e) => {
+        console.log(e.target.dataset.city);
+        handleSelect(e.target.dataset);
+    };
 
     return (
         <div className="insurancePanel">
-            {/* <header className="insurancePanelHeader">
-                <h2>Insurance Panel</h2>
-                <img src={StolenLogo} className="logo"></img>
-                <div className="iconContainer">
-                    <IconButton className="profileIcon">
-                        <AccountCircleIcon></AccountCircleIcon>
-                    </IconButton>
-                    <label className="clickable">Profile</label>
-                </div>
-            </header> */}
             <section className="mainContentContainer">
                 <div className="sidebarContainer">
-                    <div className="sidebarListItem clickable">New York</div>
-                    <div className="sidebarListItem clickable">London</div>
-                    <div className="sidebarListItem clickable">Sofia de Janeiro</div>
+                    <div className="sidebarListItem clickable" data-city="Chicago" data-initialview="-87.62357559764882, 41.87300850720308" onClick={handleClick}>Chicago</div>
+                    <div className="sidebarListItem clickable" data-city="London">London</div>
+                    <div className="sidebarListItem clickable" data-city="Sofia de Janeiro">Sofia de Janeiro</div>
                 </div>
                 <div className="dataContainer">
                     <TableContainer component={Paper} className="tableContainer">
